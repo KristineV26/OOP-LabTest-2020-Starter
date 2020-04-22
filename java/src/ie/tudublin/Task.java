@@ -64,13 +64,12 @@ public class Task {
         pa.textAlign(PApplet.CENTER, PApplet.CENTER);
         pa.fill(225);
         pa.text(task, leftborder / 2, y);
-        float x = PApplet.map(start, 0, 30, pa.width - border, leftborder);
-        float endWidth = PApplet.map(end, 0, 30, pa.width - border, leftborder);
+        float x = PApplet.map(start, 1, 30, leftborder, pa.width - border);
+        float width = PApplet.map(end, 1, 30, leftborder, pa.width - border);
 
         pa.stroke(255);
         pa.fill(255);
-        //pa.rect(start, x - leftborder, end, 5);
-        pa.rect(x, x, endWidth, 20);
+        pa.rect(x, y, width - x, 20);
 
     }
 }
