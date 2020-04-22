@@ -67,8 +67,8 @@ public class Task {
         float x = PApplet.map(start, 1, 30, leftborder, pa.width - border);
         float width = PApplet.map(end, 1, 30, leftborder, pa.width - border);
 
-        pa.stroke(255);
-        pa.fill(255);
+        pa.fill(PApplet.map(i, 0, 9, 0, 255), 255, 255);
+        pa.noStroke();
         pa.rect(x, y, width - x, 20);
 
     }
