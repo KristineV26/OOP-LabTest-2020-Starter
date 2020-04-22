@@ -2,7 +2,6 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
-import javafx.scene.control.Cell;
 import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -43,9 +42,11 @@ public class Gantt extends PApplet
 
 	public void insertTask()
 	{
+		int i = 0;
 		for(Task k: task)
 		{
-			k.render(this);
+			k.render(this, i);
+			i++;
 		}
 	}
 

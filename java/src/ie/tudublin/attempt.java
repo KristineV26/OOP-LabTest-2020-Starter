@@ -15,6 +15,7 @@ public class attempt extends PApplet{
     
     public void draw()
 	{
+		background(0);
 		float border = width * 0.05f;
 		float leftborder = height * 0.3f;
 		//to draw horizontal lines of the range from 1 to 30
@@ -30,6 +31,6 @@ public class attempt extends PApplet{
 			text(i, x, border / 2);
 		}
 		
-
+		rect(0, 0, 100, 100);
 	}
 }

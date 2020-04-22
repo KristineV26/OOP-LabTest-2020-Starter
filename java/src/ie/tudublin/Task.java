@@ -55,12 +55,22 @@ public class Task {
         this(tr.getString("Task"), tr.getInt("Start"), tr.getInt("End"));
     }
 
-    public void render(PApplet pa)
+    public void render(PApplet pa, int i)
     {
-        float border = pa.width * 0.5f;
+        float border = pa.width * 0.05f;
         float leftborder = pa.width * 0.3f;
-        //pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+
+        float y = PApplet.map(i, 0, 9,border, pa.height - border);
+        pa.textAlign(PApplet.CENTER, PApplet.CENTER);
         pa.fill(225);
-        pa.text(task, pa.width / 2, pa.height / 2);
+        pa.text(task, leftborder / 2, y);
+        float x = PApplet.map(start, 0, 30, pa.width - border, leftborder);
+        float endWidth = PApplet.map(end, 0, 30, pa.width - border, leftborder);
+
+        pa.stroke(255);
+        pa.fill(255);
+        //pa.rect(start, x - leftborder, end, 5);
+        pa.rect(x, x, endWidth, 20);
+
     }
 }
