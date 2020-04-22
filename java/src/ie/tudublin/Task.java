@@ -24,16 +24,16 @@ public class Task {
         this.end = end;
     }
     
-    public String getTask(String task)
+    public String getTask()
     {
         return task;
     }
-    public int getStart(int start)
+    public int getStart()
     {
         return start;
     }
 
-    public int getEnd(int end)
+    public int getEnd()
     {
         return end;
     }
