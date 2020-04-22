@@ -72,25 +72,26 @@ public class Gantt extends PApplet
 
 	}
 
-	float x1, x2, y1, y2;
-	
+	float[] mouse1 = {0, 0};
+	float[] mouse2 = {0, 0};
+
 	public void mousePressed()
 	{
 		println("Mouse pressed");
-		x1 = mouseX;
-		x2 = mouseY;
+		mouse1[0] = mouseX;
+		mouse1[1] = mouseY;
 	}
 
 	public void mouseDragged(int end, int start)
 	{
 		println("Mouse dragged");
-		float x2 = pmouseX;
-		float y2 = pmouseY;
+		mouse2[0] = pmouseX;
+		mouse2[1] = pmouseY;
 
-		x1 = (int) map(x1, 0, width, 1, 30);
-		x2 = (int) map(x2, 0, width, 1, 30);
+		mouse1[0] = (int) map(mouse1[0], 0, width, 1, 30);
+		mouse2[0] = (int) map(mouse2[0], 0, width, 1, 30);
 
-		float x3 = x2 - x1;
+		float x3 = mouse2[0] - mouse1[0];
 		//float y3 = y2 - y1;
 
 		if(end != 0)
@@ -98,7 +99,6 @@ public class Gantt extends PApplet
 			int newEnd = end + (int)x3;
 			ct.setEnd(newEnd);
 		}
-
 		if(start != 0)
 		{
 			int newStart = start + (int)x3;
@@ -121,11 +121,11 @@ public class Gantt extends PApplet
 			end = (int) map(end, 1, 30, 0, width);	
 
 
-			if (mouseX >= start && mouseX <=  start - 20 && mouseY >= start && mouseY <=  start - 20)
+			if (mouse1[0] >= start && mouse1[0] <=  start - 20 && mouse1[1] >= start && mouse1[1] <=  start - 20)
 			{
 				return start;
 			}
-			if(mouseX <= end && mouseX >=  end - 20 && mouseY <= end && mouseY >=  end - 20)
+			if(mouse1[0] <= end && mouse1[1] >=  end - 20 && mouse1[1] <= end && mouse1[1] >=  end - 20)
 			{
 				return end;
 			}
